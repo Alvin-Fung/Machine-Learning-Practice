@@ -1,70 +1,22 @@
 import numpy as np
+import pandas as pd
+import sklearn
+import matplotlib.pyplot as plt
 
-# # Numpy Practice
-# a = np.array([1,2,3], dtype='int16')
-# print(a)
+# Data distribution
+#x = np.random.uniform(0.0, 5.0, 250) # Low, High, Size
+#print(x)
 
-# b = np.array([[7.0,8.0,10.0],[5.0,2.0,11.0]])
-# print(b) 
+# Histogram
+#plt.hist(x , 5)
+#plt.show()
 
-# # Get Dimension
-# print(a.ndim)
-# print(b.ndim)
+# Big Data Distribution
+x = np.random.uniform(0.0, 5.0, 100000) # Low, High, Size
+#plt.hist(x, 100)
+#plt.show()
 
-# # Get Shape / Kinda like the len function in py 
-# print(a.shape)
-# print(b.shape)
-
-# # Get Type
-# print(a.dtype)
-# print(b.dtype)
-
-# # Get Size
-# print(a.itemsize)
-# print(b.itemsize)
-
-# # Get total size
-# print(a.nbytes)
-# # Or
-# a.size
-
-# Range
-np1 = np.arange(10)
-print(np1)
-
-# Step
-np2 = np.arange(0, 10, 2)
-print(np2)
-
-np3 = np.zeros(10)
-print(np3)
-
-# Multidimensional zeros
-np4 = np.zeros((2,10))
-print(np4)
-
-# Full
-np5 = np.full((10), 6)
-print(np5)
-
-# Multidimensional Full
-np6 = np.full((2,10), 6)
-print(np6)
- 
-# Accessing/Changing specific elements, rows, columns
-
-# Getting a specifc element
-c = np.array([[8, 6, 8],[5, 9, 2]])
-print(c[1,2])
-
-# Getting a specific row
-print(c[1, :])
-
-# Getting a specific column
-print(c[:, 0])
-
-# Convert Python lists to np
-
-my_list = [1,2,3,4,5]
-np7 = np.array(my_list)
-print(np7)
+# Normal Data Distribution / Gaussian data distribution
+y = np.random.normal(5.0, 1.0, 100000) # Produces a bell curve in the graph - Mean value, standard deviation and size
+plt.hist(y, 100)
+plt.show()
