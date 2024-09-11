@@ -20,7 +20,7 @@ x = np.random.uniform(0.0, 5.0, 100000) # Low, High, Size
 # Normal Data Distribution / Gaussian data distribution
 y = np.random.normal(5.0, 1.0, 100000) # Produces a bell curve in the graph - Mean value, standard deviation and size
 plt.hist(y, 100)
-plt.show()
+#plt.show()
 
 # Scatter Plot
 
@@ -28,7 +28,7 @@ x = [5, 7, 8, 7, 12, 2, 4, 17, 18, 5, 6]
 y = [52, 99, 87, 76, 54, 32, 101,87, 94, 78, 121]
 
 plt.scatter(x,y)
-plt.show()
+#plt.show()
 
 # Scatter plot with random data distribution
 
@@ -36,7 +36,7 @@ x = np.random.normal(5.0, 1.0, 1000)
 y = np.random.normal(10.0, 2.0, 1000)
 
 plt.scatter(x, y)
-plt.show()
+#plt.show()
 
 # Linear Regression 
 
@@ -56,7 +56,7 @@ my_model =  list(map(linear_equation,x))
 
 plt.scatter(x, y) # Draws the original scatter plot
 plt.plot(x, my_model) # Draws the line of linear regression
-plt.show()
+#plt.show()
 
 # Predicting Future Values
 
@@ -69,7 +69,7 @@ def linear_equation(x):
     return slope * x + intercept
 
 speed = linear_equation(10)
-print(speed) # Result = 85.59308314937454
+#print(speed) # Result = 85.59308314937454
 
 # Linear Regression example where it would not be best used to predict future values.
 x = [89,43,36,36,95,10,66,34,38,20,26,29,48,64,6,5,36,66,72,40]
