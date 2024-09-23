@@ -4,7 +4,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import plot_tree
 import matplotlib.pyplot as plt
 
-
 df = pd.read_csv("data2.csv")
 
 d = {'UK': 0, 'USA': 1, 'N': 2}
@@ -24,7 +23,7 @@ y = df['Go']
 dtree = DecisionTreeClassifier()
 dtree = dtree.fit(X, y)
 
-plot_tree(dtree, feature_names=features)
+tree.plot_tree(dtree, feature_names=features)
 plt.show()
 
 # This doesn't work... why..?
