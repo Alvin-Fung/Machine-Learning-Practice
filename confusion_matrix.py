@@ -15,3 +15,30 @@ cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = confusion_matrix,
 
 cm_display.plot()
 plt.show()
+
+# Metrics
+
+## Accuracy
+# Formula: (True Positive + True Negative) / Total Predictions
+Accuracy =  metrics.accuracy_score(actual, predicted)
+print(Accuracy)
+
+## Precision
+# Formula: True Positive / (True Positive + False Positive)
+Precision = metrics.precision_score(actual, predicted)
+
+## Sensitivity(Recall)
+# Formula: True Positive / (True Positive +  False Negative)
+Sensitivity_recall = metrics.recall_score(actual, predicted)
+
+## Specificity
+# Formula: True Negative / (True Negative + False Positive)
+Specificity = metrics.recall_score(actual, predicted, pos_label=0)
+
+## F-score
+# Formula: 2 * ((Precision * Sensitivity) / (Precision + Sensitivity))
+
+F1_score = metrics.f1_score(actual, predicted)
+
+# All calculations in one:
+print({"Accuracy": Accuracy, "Precision":Precision, "Sensivitiy_recall":Sensitivity_recall, "Specifity":Specificity, "F1_score":F1_score})
