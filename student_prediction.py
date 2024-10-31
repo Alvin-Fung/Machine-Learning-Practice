@@ -18,10 +18,10 @@ data = data[["absences", "studytime", "failures", "G1", "G2", "G3"]]
 # print(data.head())
 
 predict = "G3"
-X = np.array(data.drop([predict], 1))  # New training data using G3
+X = np.array(data.drop([predict], axis=1))  # New training data using G3
 Y = np.array(data[predict])  # All of our labels
 
-x_train, y_train, x_test, y_test = sklearn.model_selection.train_test_split(
+x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(
     X, Y, test_size=0.1)  # Splits data up into 10% for test samples
 
 linear = linear_model.LinearRegression()
