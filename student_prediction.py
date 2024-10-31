@@ -2,15 +2,24 @@
 
 import numpy as np
 import pandas as pd
-from sklearn import linear_model
+from sklearn import linear_model, sklearn
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 from scipy import stats
 
-data = pd.read_csv("student_mat.csv", sep=";")
 # Data is being separated by semicolons
-print(data.head())
+data = pd.read_csv("student_mat.csv", sep=";")
+
+# print(data.head())
 
 # Data Frame Filtering - we need to specifically filter the data set to predict their grades.
+# G1 - G3 are the grades, G3 being the most recent grade that a student has acquired.
 data = data[["absences", "studytime", "failures", "G1", "G2", "G3"]]
-print(data.head())
+# print(data.head())
+
+predict = "G3"
+X = np.array(data.drop([predict], 1))  # New training data using G3
+Y = np.array(data[predict])  # All of our labels
+
+x_train, y_train, x_test, y_test = sklearn.model_selection.train_test_split(
+    X, Y, test_size=0.1)  # Splits data up into 10% for test samples
