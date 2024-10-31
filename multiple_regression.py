@@ -23,3 +23,6 @@ regr.fit(X, Y)
 # Prediction with car weight of 2300KG & volume of 1300cm^3
 predicatedCO2 = regr.predict([[2300, 1300]])
 print(predicatedCO2)
+
+# Coefficient
+print(regr.coef_)
