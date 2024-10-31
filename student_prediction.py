@@ -23,3 +23,9 @@ Y = np.array(data[predict])  # All of our labels
 
 x_train, y_train, x_test, y_test = sklearn.model_selection.train_test_split(
     X, Y, test_size=0.1)  # Splits data up into 10% for test samples
+
+linear = linear_model.LinearRegression()
+
+linear.fit(x_train, y_train)  # Line of best fit
+acc = linear.score(x_test, y_test)  # Represents accurracy of the model
+print(acc)
