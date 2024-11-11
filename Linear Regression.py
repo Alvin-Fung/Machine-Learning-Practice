@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn import linear_model, sklearn
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
+from matplotlib import style
 from scipy import stats
 import pickle
 
@@ -21,7 +22,10 @@ data = data[["absences", "studytime", "failures", "G1", "G2", "G3"]]
 predict = "G3"
 X = np.array(data.drop([predict], axis=1))  # New training data using G3
 Y = np.array(data[predict])  # All of our labels
+x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(
+    X, Y, test_size=0.1)  # Splits data up into 10% for test samples
 
+'''
 best_score = 0
 for _ in range(30):
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(
@@ -36,10 +40,10 @@ for _ in range(30):
     if acc > best_score:
         best_score = acc
         with open("studentmodel.pickle", "wb") as f:
-            pickle.dump(linear, f)
+            pickle.dump(linear, f)'''
 
-pickle_in = open("studentmodel.pickle", "rb")
 # Loading the pickle into the linear model
+pickle_in = open("studentmodel.pickle", "rb")
 linear = pickle.load(pickle_in)
 
 print("Co: \n", linear.coef_)
@@ -49,3 +53,11 @@ predictions = linear.predict(x_test)
 
 for x in range(len(predictions)):
     print(predictions[x], x_test[x], y_test[x])
+
+# Plotting
+p = "G2"
+style.use("ggplot")
+plt.scatter(data[p], data["G3"])
+plt.xlabel(p)
+plt.ylabel("Final Grade")
+plt.show()
