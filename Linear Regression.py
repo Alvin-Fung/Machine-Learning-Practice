@@ -6,6 +6,7 @@ from sklearn import linear_model, sklearn
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 from scipy import stats
+import pickle
 
 # Data is being separated by semicolons
 data = pd.read_csv("student_mat.csv", sep=";")
@@ -29,6 +30,9 @@ linear = linear_model.LinearRegression()
 linear.fit(x_train, y_train)  # Line of best fit
 acc = linear.score(x_test, y_test)  # Represents accurracy of the model
 print(acc)
+
+with open("studentmodel.pickle", "wb") as f:
+    pickle.dump(linear, f)
 
 print("Co: \n", linear.coef_)
 print("Intercept: \n", linear.intercept_)
