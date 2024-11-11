@@ -34,6 +34,10 @@ print(acc)
 with open("studentmodel.pickle", "wb") as f:
     pickle.dump(linear, f)
 
+pickle_in = open("studentmodel.pickle", "rb")
+# Loading the pickle into the linear model
+linear = pickle.load(pickle_in)
+
 print("Co: \n", linear.coef_)
 print("Intercept: \n", linear.intercept_)
 
