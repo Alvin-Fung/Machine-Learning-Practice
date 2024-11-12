@@ -25,3 +25,5 @@ y = list(cls)
 
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(
     X, y, test_size=0.1)  # Splits data up into 10% for test samples
+
+print(x_train,  y_train)  # Why is this priting out "np.int64(0) or (2)"
