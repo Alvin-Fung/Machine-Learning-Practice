@@ -39,3 +39,6 @@ for x in range(len(predicted)):
     data_point = tuple(int(i) for i in x_test[x])
     print("Predicted:", names[predicted[x]], "Data:",
           data_point, "Actual:", names[y_test[x]])
+    # Able to now see the neighbors of each point in testing data.
+    n = model.kneighbors([x_test[x]], 9, True)
+    print("N: ", n)
