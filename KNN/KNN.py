@@ -6,7 +6,7 @@ import numpy as np
 from sklearn import linear_model, preprocessing
 
 data = pd.read_csv("car.data")
-print(data.head())
+# print(data.head())
 
 le = preprocessing.LabelEncoder()
 buying = le.fit_transform(list(data["buying"]))
@@ -26,4 +26,16 @@ y = list(cls)
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(
     X, y, test_size=0.1)  # Splits data up into 10% for test samples
 
-print(x_train,  y_train)  # Why is this priting out "np.int64(0) or (2)"
+model = KNeighborsClassifier(n_neighbors=8)
+
+model.fit(x_train, y_train)
+acc = model.score(x_test, y_test)
+print("Accuracy: ", acc)
+
+predicted = model.predict(x_test)
+names = ["unacc", "acc", "good", "vgood"]
+
+for x in range(len(predicted)):
+    data_point = tuple(int(i) for i in x_test[x])
+    print("Predicted:", names[predicted[x]], "Data:",
+          data_point, "Actual:", names[y_test[x]])
